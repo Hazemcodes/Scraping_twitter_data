@@ -21,7 +21,7 @@ def scrape_twitter_accounts(accounts, stock_symbol, interval_minutes):
             time.sleep(5)
 
             mentions = driver.find_elements(By.XPATH, f"//span/a[contains(text(), '{stock_symbol}')]")
-            counter+= 1
+            counter+= len(mentions)
 
         print(stock_symbol,"was mentioned",counter,"times in the last",interval_minutes,"minutes")
         time.sleep(interval_minutes * 60)
